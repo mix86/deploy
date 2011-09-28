@@ -1,0 +1,8 @@
+Put ".deploy" file to the root of your project.
+Examlpe:
+
+REMOTE="server.examlpe.com"
+REMOTE_PATH="/home/user/dev"
+EXCLUDES="--exclude=trash"
+
+Enjoy
