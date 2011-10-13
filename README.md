@@ -41,11 +41,11 @@ Usage examples
 Original README
 ===============
 
-> Put ".deploy" file to the root of your project.
+> Put ".deploy" file to the root of your project.  
 > Examlpe:
 > 
-> REMOTE="server.examlpe.com"
-> REMOTE_PATH="/home/user/dev"
-> EXCLUDES="--exclude=trash"
+> REMOTE="server.examlpe.com"  
+> REMOTE_PATH="/home/user/dev"  
+> EXCLUDES="--exclude=trash"  
 > 
 > Enjoy
