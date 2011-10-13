@@ -78,6 +78,10 @@ OPT_UPDATE=""
 if $UPDATE_REMOTE ; then
     OPT_UPDATE="--update"
 fi
+DEL_EX=""
+if $DELETE_EXCLUDED ; then
+    DEL_EX="--delete-excluded"
+fi
 
 if $REVERSE ; then
     PROJECT_NAME=`echo $PROJECT | $SED 's/[a-zA-Z0-1\/]+\/([a-zA-Z0-9]+)/\1/'`
@@ -86,7 +90,7 @@ if $REVERSE ; then
         $REMOTE_USER@$REMOTE:$REMOTE_PATH/$PROJECT_NAME $PROJECT/..
 else
     echo $PROJECT" => "$REMOTE:$REMOTE_PATH
-    rsync -rvL $DRY_RUN $OPT_UPDATE --delete $EXCLUDES \
+    rsync -rvL $DRY_RUN $OPT_UPDATE $DEL_EX --delete $EXCLUDES \
         $PROJECT $REMOTE_USER@$REMOTE:$REMOTE_PATH
 fi
 
