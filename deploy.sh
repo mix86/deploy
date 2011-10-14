@@ -34,7 +34,7 @@ retry=0
 until [[ -f $PROJECT/.deploy ]]
 do
     if [[ $retry -gt 32 ]]; then
-        echo "Can\'t find \".deploy\" file $1" >&2
+        echo "Can't find \".deploy\" file" >&2
         exit 1
     fi
     PROJECT="$PROJECT/.."
@@ -86,12 +86,12 @@ fi
 if $REVERSE ; then
     PROJECT_NAME=`echo $PROJECT | $SED 's/[a-zA-Z0-1\/]+\/([a-zA-Z0-9]+)/\1/'`
     echo $REMOTE_USER@$REMOTE:$REMOTE_PATH/$PROJECT_NAME" => "$PROJECT/..
-    rsync -rv $DRY_RUN $OPT_UPDATE $EXCLUDES \
+    rsync -rv $DRY_RUN $OPT_UPDATE --executability $EXCLUDES \
         $REMOTE_USER@$REMOTE:$REMOTE_PATH/$PROJECT_NAME $PROJECT/..
 else
     echo $PROJECT" => "$REMOTE:$REMOTE_PATH
-    rsync -rvL $DRY_RUN $OPT_UPDATE $DEL_EX --delete $EXCLUDES \
-        $PROJECT $REMOTE_USER@$REMOTE:$REMOTE_PATH
+    rsync -rvL $DRY_RUN $OPT_UPDATE $DEL_EX --delete --force --executability \
+        $EXCLUDES $PROJECT $REMOTE_USER@$REMOTE:$REMOTE_PATH
 fi
 
 exit 0
