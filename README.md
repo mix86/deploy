@@ -1,10 +1,3 @@
-About
-=====
-
-I like this script idea. But i want little more ;-)
-
-TGI GitHub!
-
 Usage
 =====
 Simplest: `deploy` within your project folder. Script will try to find `.deploy` file
@@ -38,14 +31,4 @@ Usage examples
 * `deploy --with=.git --with=.ropeproject` - will deploy your code to the `REMOTE` and override default excludes (force `.git` and `.ropeproject` to be copied to the server).
 * `deploy --dry` - dry run. You will see what will happen. Without risk ;)
 
-Original README
-===============
-
-> Put ".deploy" file to the root of your project.  
-> Examlpe:
-> 
-> REMOTE="server.examlpe.com"  
-> REMOTE_PATH="/home/user/dev"  
-> EXCLUDES="--exclude=trash"  
-> 
-> Enjoy
+Enjoy
